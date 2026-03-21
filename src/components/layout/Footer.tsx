@@ -26,7 +26,7 @@ export function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
+          <nav aria-label="Footer navigation">
             <h3 className="font-body text-sm font-semibold uppercase tracking-wider text-muted-gold">
               Explore
             </h3>
@@ -35,14 +35,14 @@ export function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-cream/70 transition-colors duration-200 ease-out hover:text-warm-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-muted-gold focus-visible:ring-offset-2"
+                    className="cursor-pointer text-sm text-cream/70 transition-colors duration-200 ease-out hover:text-warm-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-muted-gold focus-visible:ring-offset-2"
                   >
                     {label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Neon sign quote */}
           <div className="sm:col-span-2 lg:col-span-1">

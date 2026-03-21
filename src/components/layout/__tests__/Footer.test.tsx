@@ -25,4 +25,9 @@ describe("Footer", () => {
     expect(screen.getByRole("link", { name: /about/i })).toHaveAttribute("href", "/about");
     expect(screen.getByRole("link", { name: /visit/i })).toHaveAttribute("href", "/visit");
   });
+
+  it("renders the neon sign quote", () => {
+    render(<Footer />);
+    expect(screen.getByText(/one cup away from happiness/i)).toBeInTheDocument();
+  });
 });

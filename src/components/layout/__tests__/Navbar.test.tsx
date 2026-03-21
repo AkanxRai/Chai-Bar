@@ -20,4 +20,9 @@ describe("Navbar", () => {
     render(<Navbar />);
     expect(screen.getByRole("link", { name: /chai bar/i })).toHaveAttribute("href", "/");
   });
+
+  it("renders the mobile menu button with aria-label", () => {
+    render(<Navbar />);
+    expect(screen.getByRole("button", { name: /open menu/i })).toBeInTheDocument();
+  });
 });

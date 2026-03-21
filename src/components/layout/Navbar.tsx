@@ -10,7 +10,7 @@ const navLinks = [
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-cream/20 bg-warm-white/95 backdrop-blur supports-[backdrop-filter]:bg-warm-white/80">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <nav aria-label="Main navigation" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
           className="cursor-pointer font-brand text-2xl font-bold tracking-tight text-chai-brown transition-colors duration-200 ease-out hover:text-chai-brown/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chai-brown focus-visible:ring-offset-2"
