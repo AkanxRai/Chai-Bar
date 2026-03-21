@@ -27,6 +27,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
           {/* Diet badge */}
           <span className="inline-flex items-center gap-1.5">
             <span
+              aria-hidden="true"
               className={`h-2.5 w-2.5 rounded-full ${
                 item.diet === "veg" ? "bg-green-600" : "bg-red-600"
               }`}
@@ -38,10 +39,12 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
 
           {/* M/L size toggle — only for chai specials */}
           {item.hasSizes && (
-            <div className="flex gap-1">
+            <div className="flex gap-1" role="group" aria-label="Size selection">
               <button
                 onClick={() => setSelectedSize("M")}
-                className={`cursor-pointer rounded-md px-3 py-1 text-sm font-body font-medium transition-colors duration-200 ease-out ${
+                aria-label="Medium size"
+                aria-pressed={selectedSize === "M"}
+                className={`cursor-pointer rounded-md px-3 py-1 text-sm font-body font-medium transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
                   selectedSize === "M"
                     ? "bg-terracotta text-warm-white"
                     : "bg-cream/50 text-charcoal/70"
@@ -51,7 +54,9 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
               </button>
               <button
                 onClick={() => setSelectedSize("L")}
-                className={`cursor-pointer rounded-md px-3 py-1 text-sm font-body font-medium transition-colors duration-200 ease-out ${
+                aria-label="Large size"
+                aria-pressed={selectedSize === "L"}
+                className={`cursor-pointer rounded-md px-3 py-1 text-sm font-body font-medium transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 ${
                   selectedSize === "L"
                     ? "bg-terracotta text-warm-white"
                     : "bg-cream/50 text-charcoal/70"

@@ -24,7 +24,7 @@ describe("ChefsPicks", () => {
 
   it("shows price for each pick", () => {
     render(<ChefsPicks />);
-    expect(screen.getByText("₹79")).toBeInTheDocument(); // Masala Chai M price
+    expect(screen.getByText("From ₹79")).toBeInTheDocument(); // Masala Chai — sized item
     expect(screen.getByText("₹479")).toBeInTheDocument(); // Chicken Ramen Bowl
   });
 

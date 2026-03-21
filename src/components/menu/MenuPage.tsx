@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { menuCategories } from "@/data/menu";
+import { menuCategories, bestsellers } from "@/data/menu";
 import { ChefsPicks } from "./ChefsPicks";
 import { MenuFilters } from "./MenuFilters";
 import { CategoryTabs } from "./CategoryTabs";
@@ -41,6 +41,8 @@ export function MenuPage() {
       if (filters.has("non-veg") && item.diet !== "non-veg") return false;
       // Price filter
       if (filters.has("under-150") && item.price > 150) return false;
+      // Bestsellers filter
+      if (filters.has("bestsellers") && !bestsellers.includes(item.name)) return false;
 
       return true;
     });
@@ -85,12 +87,19 @@ export function MenuPage() {
         />
       </div>
 
-      {/* Item count */}
-      <p className="mt-4 font-body text-sm text-charcoal/50">
-        {activeItems.length === totalInCategory
-          ? `${totalInCategory} items`
-          : `${activeItems.length} of ${totalInCategory} items`}
-      </p>
+      {/* Item count + affordability badge */}
+      <div className="mt-4 flex items-center gap-3">
+        <p className="font-body text-sm text-charcoal/50">
+          {activeItems.length === totalInCategory
+            ? `${totalInCategory} items`
+            : `${activeItems.length} of ${totalInCategory} items`}
+        </p>
+        {activeCategory === "snack-bites" && (
+          <span className="inline-block rounded-full bg-muted-gold/20 px-3 py-0.5 font-body text-xs font-semibold text-muted-gold">
+            From ₹59
+          </span>
+        )}
+      </div>
 
       {/* Menu Items Grid */}
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

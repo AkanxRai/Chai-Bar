@@ -29,7 +29,6 @@ export function ChefsPicks() {
       </h2>
       <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide mt-4">
         {picks.map(({ item, category }) => {
-          const displayPrice = item.hasSizes ? item.price : item.price;
           return (
             <div
               key={item.name}
@@ -48,7 +47,7 @@ export function ChefsPicks() {
                 {item.name}
               </p>
               <p className="font-body text-sm font-bold text-terracotta mt-1">
-                ₹{displayPrice}
+                {item.hasSizes ? `From ₹${item.price}` : `₹${item.price}`}
               </p>
             </div>
           );

@@ -18,20 +18,20 @@ describe("CategoryTabs", () => {
 
   it("highlights the active category", () => {
     render(<CategoryTabs categories={categories} activeId="chai-specials" onSelect={() => {}} />);
-    const activeButton = screen.getByRole("button", { name: "Chai Specials" });
+    const activeButton = screen.getByRole("tab", { name: "Chai Specials" });
     expect(activeButton.className).toMatch(/bg-terracotta/);
   });
 
   it("calls onSelect when a tab is clicked", () => {
     const onSelect = vi.fn();
     render(<CategoryTabs categories={categories} activeId="chai-specials" onSelect={onSelect} />);
-    fireEvent.click(screen.getByRole("button", { name: "Snack Bites" }));
+    fireEvent.click(screen.getByRole("tab", { name: "Snack Bites" }));
     expect(onSelect).toHaveBeenCalledWith("snack-bites");
   });
 
   it("inactive tabs do not have active styling", () => {
     render(<CategoryTabs categories={categories} activeId="chai-specials" onSelect={() => {}} />);
-    const inactiveButton = screen.getByRole("button", { name: "Snack Bites" });
+    const inactiveButton = screen.getByRole("tab", { name: "Snack Bites" });
     expect(inactiveButton.className).not.toMatch(/bg-terracotta/);
   });
 });

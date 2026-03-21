@@ -13,6 +13,7 @@ describe("MenuFilters", () => {
     expect(screen.getByRole("button", { name: /veg only/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /non-veg/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /under ₹150/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /bestsellers/i })).toBeInTheDocument();
   });
 
   it("calls onSearchChange when typing", () => {

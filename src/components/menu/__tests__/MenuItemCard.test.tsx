@@ -43,8 +43,8 @@ describe("MenuItemCard", () => {
 
   it("shows M/L size toggle for chai items", () => {
     render(<MenuItemCard item={chaiItem} />);
-    expect(screen.getByRole("button", { name: /^M$/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /^L$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /medium size/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /large size/i })).toBeInTheDocument();
   });
 
   it("displays medium price by default for chai items", () => {
@@ -54,12 +54,12 @@ describe("MenuItemCard", () => {
 
   it("switches to large price when L is clicked", () => {
     render(<MenuItemCard item={chaiItem} />);
-    fireEvent.click(screen.getByRole("button", { name: /^L$/i }));
+    fireEvent.click(screen.getByRole("button", { name: /large size/i }));
     expect(screen.getByText("₹129")).toBeInTheDocument();
   });
 
   it("does not show size toggle for non-chai items", () => {
     render(<MenuItemCard item={vegItem} />);
-    expect(screen.queryByRole("button", { name: /^M$/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /medium size/i })).not.toBeInTheDocument();
   });
 });

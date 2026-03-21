@@ -11,6 +11,7 @@ const FILTER_PILLS = [
   { id: "veg", label: "Veg Only" },
   { id: "non-veg", label: "Non-Veg" },
   { id: "under-150", label: "Under ₹150" },
+  { id: "bestsellers", label: "Bestsellers" },
 ] as const;
 
 export function MenuFilters({
@@ -32,6 +33,7 @@ export function MenuFilters({
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="What are you craving?"
+          aria-label="Search menu items"
           className="w-full rounded-xl border border-cream bg-warm-white px-4 py-3 pl-10 font-body text-sm text-charcoal placeholder:text-charcoal/40 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
         />
       </div>
