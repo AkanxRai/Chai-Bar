@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Chai Bar Design Tokens */
+    --chai-brown: #5C3317;
+    --cream: #F5ECD7;
+    --terracotta: #C1440E;
+    --muted-gold: #C9A84C;
+    --charcoal: #2A2A2A;
+    --warm-white: #FAF6EF;
+
+    --background: var(--warm-white);
+    --foreground: var(--charcoal);
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+  }
+}
