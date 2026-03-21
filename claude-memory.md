@@ -86,6 +86,22 @@
 
 ---
 
+## Phase Completion Log
+
+### 2026-03-22 — Phase 0 Complete
+
+- Next.js 14.2.35 + TypeScript + Tailwind 3 + shadcn/ui scaffolded
+- Design tokens: baseline palette confirmed (chai-brown, cream, terracotta, muted-gold, charcoal, warm-white)
+- Fonts: Playfair Display (brand), Dancing Script (script), DM Sans (body) via next/font
+- Navbar + Footer built with TDD (9 passing tests)
+- All 5 routes created: /, /menu, /stories, /about, /visit
+- Vitest + React Testing Library configured
+- ESLint configured (next/core-web-vitals)
+- Code review passed — a11y improvements applied (aria-labels, semantic nav, focus states)
+- Ready for Phase 1 (Homepage)
+
+---
+
 ## Open Questions (resolve before/during Phase 0)
 
 - [x] ~~What is DBC?~~ → "DBC Pastry" and "DBC Sundae" are the correct item names. Display as-is.
