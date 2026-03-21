@@ -104,7 +104,7 @@ The design system is systematic — `ui-ux-pro-max` catches anti-patterns before
 Update this section as phases complete.
 
 - [x] **Phase 0** — Design system bootstrap + project scaffold
-- [ ] **Phase 1** — Homepage (Hero, Why Chai Bar, Menu Teaser, Gallery)
+- [x] **Phase 1** — Homepage (Hero, Why Chai Bar, Menu Teaser, Gallery)
 - [ ] **Phase 2** — Menu page (full, with filters + M/L toggle)
 - [ ] **Phase 3** — Blog (City Stories) + About + Visit pages
 - [ ] **Phase 4** — Reviews, Instagram feed, Contact form

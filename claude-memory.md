@@ -100,6 +100,18 @@
 - Code review passed — a11y improvements applied (aria-labels, semantic nav, focus states)
 - Ready for Phase 1 (Homepage)
 
+### 2026-03-22 — Phase 1 Complete
+
+- Homepage built with 4 sections: Hero, Why Chai Bar, Menu Teaser, Gallery Strip
+- Hero: full-screen entrance mural with dark overlay (bg-charcoal/60 + gradient) for text readability over B&W image
+- Why Chai Bar: 3-column value props with Lucide icons (Coffee, Home, BookOpen)
+- Menu Teaser: 4 featured items (Classic Chai, Chicken Caesar Salad, Chicken Ramen Bowl, Masala Chai) with images + Coffee icon fallback
+- Gallery Strip: horizontal scroll with 5 images, captions always visible on mobile, hover on desktop
+- Navbar rewritten as client component with functional mobile drawer
+- 24 tests passing (6 test files)
+- Code review completed with fixes applied
+- User feedback addressed: hero text readability improved with stronger overlay
+
 ---
 
 ## Open Questions (resolve before/during Phase 0)
