@@ -23,7 +23,7 @@ export function VisitPage() {
             <div className="lg:flex-[2]">
               <div className="rounded-2xl overflow-hidden shadow-md h-80 md:h-96 w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0515267946873!2d77.63817677507614!3d12.978108714792648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16b0a3b5c4e1%3A0x9c0d5e5eabc0a5e8!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62206.3701025134!2d77.5621039486328!3d12.978366900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae173cc09d5a4d%3A0x8b76f39ffb0e4bec!2sChai%20Bar!5e0!3m2!1sen!2sin!4v1774126550302!5m2!1sen!2sin"
                   title="Chai Bar location map"
                   loading="lazy"
                   className="w-full h-full border-0"
@@ -43,14 +43,23 @@ export function VisitPage() {
                   </div>
                   <div>
                     <p className="font-body font-semibold text-charcoal">
-                      Indiranagar, 12th Main Road
+                      CMH Road, Indiranagar
                     </p>
                     <p className="mt-1 font-body text-sm text-charcoal/70">
                       Bangalore 560038
                     </p>
                     <p className="mt-2 font-body text-sm text-charcoal/50">
-                      Near the Indiranagar Metro Station
+                      Right next to Indiranagar CMH Road Metro Station
                     </p>
+                    <a
+                      href="https://www.google.com/maps/place/Chai+Bar/@12.9783669,77.6383216,17z/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex cursor-pointer items-center gap-1.5 font-body text-sm font-medium text-terracotta transition-colors hover:text-chai-brown focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+                    >
+                      Get Directions
+                      <Navigation className="h-3.5 w-3.5" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -135,7 +144,7 @@ export function VisitPage() {
                 By Metro
               </h3>
               <p className="mt-2 font-body text-sm text-charcoal/60">
-                Indiranagar Metro Station (Purple Line). 5-minute walk from Exit 1.
+                Indiranagar CMH Road Metro Station (Purple Line). We&rsquo;re right next to the exit.
               </p>
             </div>
 
