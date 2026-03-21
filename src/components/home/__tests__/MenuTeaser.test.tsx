@@ -10,8 +10,8 @@ describe("MenuTeaser", () => {
 
   it("renders featured menu items", () => {
     render(<MenuTeaser />);
-    expect(screen.getByText(/irani cutting chai/i)).toBeInTheDocument();
-    expect(screen.getByText(/caesar salad/i)).toBeInTheDocument();
+    expect(screen.getByText(/classic chai/i)).toBeInTheDocument();
+    expect(screen.getByText(/chicken caesar salad/i)).toBeInTheDocument();
   });
 
   it("renders poetic descriptions", () => {

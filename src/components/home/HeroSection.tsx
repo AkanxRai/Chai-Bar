@@ -14,8 +14,9 @@ export function HeroSection() {
         sizes="100vw"
       />
 
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/40 to-charcoal/20" />
+      {/* Dark overlay for text readability over black/white mural */}
+      <div className="absolute inset-0 bg-charcoal/60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-charcoal/20" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center px-4 text-center">

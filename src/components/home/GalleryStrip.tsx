@@ -55,8 +55,8 @@ export function GalleryStrip() {
                   className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                   sizes="288px"
                 />
-                {/* Caption overlay on hover */}
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 transition-opacity duration-200 ease-out group-hover:opacity-100">
+                {/* Caption overlay — always visible on mobile, hover on desktop */}
+                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-100 transition-opacity duration-200 ease-out md:opacity-0 md:group-hover:opacity-100">
                   <p className="p-4 font-script text-base text-cream">
                     {item.caption}
                   </p>

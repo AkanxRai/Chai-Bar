@@ -4,21 +4,21 @@ import { Coffee } from "lucide-react";
 
 const featuredItems = [
   {
-    name: "Irani Cutting Chai",
+    name: "Classic Chai",
     description: "The original. Unchanged for a reason.",
     category: "Chai Specials",
     image: null,
   },
   {
-    name: "Caesar Salad",
+    name: "Chicken Caesar Salad",
     description: "Crisp greens, golden croutons, and a sun-kissed afternoon.",
-    category: "Salads",
+    category: "Breakfast",
     image: "/images/caesar_salad.jpeg",
   },
   {
-    name: "Chicken Bowl",
+    name: "Chicken Ramen Bowl",
     description: "Hearty, honest, and everything your afternoon needs.",
-    category: "Bowls",
+    category: "Pasta & Ramen",
     image: "/images/chicken_bowl.jpeg",
   },
   {
