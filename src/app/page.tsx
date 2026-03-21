@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { WhyChaiBar } from "@/components/home/WhyChaiBar";
 import { MenuTeaser } from "@/components/home/MenuTeaser";
 import { GalleryStrip } from "@/components/home/GalleryStrip";
+import { ReviewsSection } from "@/components/home/ReviewsSection";
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <WhyChaiBar />
       <MenuTeaser />
       <GalleryStrip />
+      <ReviewsSection />
     </>
   );
 }
