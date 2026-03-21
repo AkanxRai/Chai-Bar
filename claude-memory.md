@@ -100,6 +100,16 @@
 - Code review passed — a11y improvements applied (aria-labels, semantic nav, focus states)
 - Ready for Phase 1 (Homepage)
 
+### 2026-03-22 — Phase 3 Complete
+
+- 3 content pages built in parallel using dispatching-parallel-agents
+- City Stories Blog: listing page with category filter pills (4 categories), 3 seed blog posts, individual post pages with hero image + full content, generateStaticParams for SSG
+- About Page: 5 sections — hero with mural overlay, origin story (2-col), the space (reversed 2-col), 4 value cards (Lucide icons), CTA section
+- Visit Page: Google Maps embed, address/hours/contact cards, 3 transport options (Metro/Auto/Walk), group booking CTA
+- All pages use placeholder content pending client input (brand story, hours, contact info, Instagram handle)
+- 86 tests passing (14 test files)
+- Blog uses static data file (src/data/blog.ts) — will migrate to Sanity CMS later
+
 ### 2026-03-22 — Phase 2 Complete
 
 - Full menu page built with 122 items across 22 categories
