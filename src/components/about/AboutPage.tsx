@@ -71,11 +71,11 @@ export function AboutPage() {
                 the thing you make when someone arrives at your door. It is what you drink
                 before a difficult conversation and after a long day. Chai Bar was designed
                 to hold all of that — the warmth, the pause, the quiet companionship of a
-                cup you didn't rush through.
+                cup you didn&rsquo;t rush through.
               </p>
               <p className="font-body text-base leading-relaxed text-charcoal/80">
-                The mural says it best: Chai, Chill &amp; City Stories. That's not a tagline.
-                That's the whole brief. Come as you are. Stay as long as you like. Leave
+                The mural says it best: Chai, Chill &amp; City Stories. That&rsquo;s not a tagline.
+                That&rsquo;s the whole brief. Come as you are. Stay as long as you like. Leave
                 with a story worth telling.
               </p>
             </div>
@@ -113,15 +113,15 @@ export function AboutPage() {
             <div className="space-y-5 lg:order-2">
               <p className="font-body text-base leading-relaxed text-charcoal/80">
                 Every design choice at Chai Bar was intentional. The arched doorways slow
-                you down — you can't rush through an arch. The lanterns cast the kind of
+                you down — you can&rsquo;t rush through an arch. The lanterns cast the kind of
                 warm, amber light that makes everything look a little more forgiving. The
                 mural at the entrance, hand-painted in script, is the first thing you see
                 and the last thing you photograph on the way out.
               </p>
               <p className="font-body text-base leading-relaxed text-charcoal/80">
-                And then there's the neon sign. "One cup away from happiness." It glows
+                And then there&rsquo;s the neon sign. &ldquo;One cup away from happiness.&rdquo; It glows
                 softly above the counter, equal parts promise and punchline. It works
-                because it's true — a good cup of chai really does shift something.
+                because it&rsquo;s true — a good cup of chai really does shift something.
               </p>
               <p className="font-body text-base leading-relaxed text-charcoal/80">
                 The space was designed to feel lived-in from day one. Not pristine. Not
@@ -167,7 +167,7 @@ export function AboutPage() {
             Come Say Hello
           </h2>
           <p className="mt-4 font-body text-base text-cream/80 sm:text-lg">
-            We're at Indiranagar, Bangalore. The chai is always on.
+            We&rsquo;re at Indiranagar, Bangalore. The chai is always on.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
