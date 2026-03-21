@@ -105,7 +105,7 @@ Update this section as phases complete.
 
 - [x] **Phase 0** — Design system bootstrap + project scaffold
 - [x] **Phase 1** — Homepage (Hero, Why Chai Bar, Menu Teaser, Gallery)
-- [ ] **Phase 2** — Menu page (full, with filters + M/L toggle)
+- [x] **Phase 2** — Menu page (full, with filters + M/L toggle)
 - [ ] **Phase 3** — Blog (City Stories) + About + Visit pages
 - [ ] **Phase 4** — Reviews, Instagram feed, Contact form
 - [ ] **Phase 5** — Polish, SEO, Analytics, Security, Deploy

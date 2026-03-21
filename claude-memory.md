@@ -100,6 +100,18 @@
 - Code review passed — a11y improvements applied (aria-labels, semantic nav, focus states)
 - Ready for Phase 1 (Homepage)
 
+### 2026-03-22 — Phase 2 Complete
+
+- Full menu page built with 122 items across 22 categories
+- Components: MenuItemCard (veg/non-veg badge + M/L toggle), CategoryTabs (ARIA tabs), MenuFilters (search + 4 filter pills), ChefsPicks (highlighted cards with gold badges)
+- MenuPage orchestrator: client component with category switching, search, veg/non-veg/under-₹150/bestsellers filtering
+- "From ₹59" badge on Snack Bites, "From ₹" prefix on sized items in ChefsPicks
+- Accessibility: ARIA tab roles, aria-labels on all interactive elements, focus-visible rings
+- 57 tests passing (11 test files)
+- Code review completed with fixes applied (accessibility, bestsellers filter, From badge)
+- Decision: kept 22 categories (matching physical menu) instead of spec's 9 grouped tabs — better for discoverability
+- Decision: per-card size toggle instead of global — more flexible for price comparison
+
 ### 2026-03-22 — Phase 1 Complete
 
 - Homepage built with 4 sections: Hero, Why Chai Bar, Menu Teaser, Gallery Strip
