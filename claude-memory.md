@@ -100,6 +100,19 @@
 - Code review passed — a11y improvements applied (aria-labels, semantic nav, focus states)
 - Ready for Phase 1 (Homepage)
 
+### 2026-03-22 — Phase 5 Complete
+
+- SEO: meta title + description + OG tags on all 6 routes + blog post pages
+- Open Graph: twitter:card summary_large_image, locale en_IN, og:type article for blog posts
+- LocalBusiness JSON-LD: CafeOrCoffeeShop schema with address, geo, priceRange, aggregateRating, sameAs (Instagram)
+- Sitemap: auto-generated from static pages + blog posts via Next.js MetadataRoute
+- robots.txt: allow all, sitemap reference
+- Analytics: GA4 + Microsoft Clarity, env-var gated (NEXT_PUBLIC_GA_ID, NEXT_PUBLIC_CLARITY_ID) — zero JS when unset
+- Performance: all images use next/image, fonts use next/font/google with display:swap + latin subset
+- Production build succeeds: 13 static pages generated
+- 105 tests passing across 17 test files
+- All 5 phases complete — site is deploy-ready on Vercel
+
 ### 2026-03-22 — Phase 4 Complete
 
 - 3 components built in parallel using dispatching-parallel-agents
