@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    /* Chai Bar Design Tokens */
-    --chai-brown: #5C3317;
-    --cream: #F5ECD7;
-    --terracotta: #C1440E;
-    --muted-gold: #C9A84C;
+    /* Chai Bar Design Tokens — Theme B (Forest Green) */
+    --chai-brown: #1B5532;
+    --cream: #E5EACB;
+    --terracotta: #7CAE68;
+    --muted-gold: #7CAE68;
     --charcoal: #2A2A2A;
-    --warm-white: #FAF6EF;
+    --warm-white: #F2F5E8;
 
     --background: var(--warm-white);
     --foreground: var(--charcoal);

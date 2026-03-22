@@ -31,7 +31,7 @@ export function ChefsPicks() {
         {picks.map(({ item, category }) => (
           <div
             key={item.name}
-            className="relative flex h-[280px] w-[260px] flex-none snap-start flex-col rounded-xl bg-gradient-to-br from-chai-brown to-[#8B4513] p-5 shadow-md transition-all duration-250 hover:scale-[1.02] hover:shadow-lg"
+            className="relative flex h-[280px] w-[260px] flex-none snap-start flex-col rounded-xl bg-gradient-to-br from-chai-brown to-[#0D3D1F] p-5 shadow-md transition-all duration-250 hover:scale-[1.02] hover:shadow-lg"
           >
             {/* Badge */}
             <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-muted-gold/20 px-2.5 py-1 font-body text-xs font-medium text-cream backdrop-blur-sm">

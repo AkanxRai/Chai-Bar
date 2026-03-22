@@ -30,15 +30,15 @@ export function HeroSection() {
         sizes="100vw"
       />
 
-      {/* Warm gradient overlay — warm-dark tint, NOT grey */}
+      {/* Forest green gradient overlay */}
       <div
         className="absolute inset-0"
         style={{
           background: `linear-gradient(
             to bottom,
-            rgba(30, 18, 8, 0.55) 0%,
-            rgba(30, 18, 8, 0.20) 50%,
-            rgba(30, 18, 8, 0.60) 100%
+            rgba(15, 45, 25, 0.55) 0%,
+            rgba(15, 45, 25, 0.20) 50%,
+            rgba(15, 45, 25, 0.60) 100%
           )`,
         }}
         aria-hidden="true"
@@ -49,9 +49,9 @@ export function HeroSection() {
         style={{
           background: `linear-gradient(
             to bottom,
-            rgba(30, 18, 8, 0.65) 0%,
-            rgba(30, 18, 8, 0.30) 50%,
-            rgba(30, 18, 8, 0.70) 100%
+            rgba(15, 45, 25, 0.65) 0%,
+            rgba(15, 45, 25, 0.30) 50%,
+            rgba(15, 45, 25, 0.70) 100%
           )`,
         }}
         aria-hidden="true"
@@ -67,7 +67,7 @@ export function HeroSection() {
           <p
             className="hero-eyebrow font-body text-xs font-medium uppercase tracking-[0.12em] opacity-0 motion-safe:animate-fade-up"
             style={{
-              color: "#C9A84C",
+              color: "#7CAE68",
               animationDelay: "0.2s",
               fontSize: "0.8rem",
             }}
@@ -80,8 +80,8 @@ export function HeroSection() {
             className="hero-headline mt-4 font-script font-bold leading-[1.15] tracking-tight opacity-0 motion-safe:animate-fade-up-slow"
             style={{
               fontSize: "clamp(2.2rem, 6vw, 5.5rem)",
-              color: "#F5ECD7",
-              textShadow: "0 2px 20px rgba(30, 18, 8, 0.6)",
+              color: "#E5EACB",
+              textShadow: "0 2px 20px rgba(15, 45, 25, 0.6)",
               animationDelay: "0.5s",
               letterSpacing: "-0.01em",
             }}
@@ -94,7 +94,7 @@ export function HeroSection() {
             className="hero-sub mt-5 font-brand font-normal opacity-0 motion-safe:animate-fade-up"
             style={{
               fontSize: "clamp(1rem, 2.2vw, 1.4rem)",
-              color: "rgba(245, 236, 215, 0.85)",
+              color: "rgba(229, 234, 203, 0.85)",
               letterSpacing: "0.04em",
               animationDelay: "0.8s",
             }}
@@ -111,16 +111,16 @@ export function HeroSection() {
             <a
               href="#menu-teaser"
               onClick={handleScrollToMenu}
-              className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded px-8 py-3.5 font-body text-sm font-semibold uppercase tracking-[0.06em] transition-all duration-200 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C] focus-visible:ring-offset-2"
+              className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded px-8 py-3.5 font-body text-sm font-semibold uppercase tracking-[0.06em] transition-all duration-200 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7CAE68] focus-visible:ring-offset-2"
               style={{
-                backgroundColor: "#C9A84C",
-                color: "#2A2A2A",
+                backgroundColor: "#1B5532",
+                color: "#E5EACB",
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = "#D4B85C")
+                (e.currentTarget.style.backgroundColor = "#236B3E")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "#C9A84C")
+                (e.currentTarget.style.backgroundColor = "#1B5532")
               }
             >
               See What&rsquo;s Brewing &rarr;
@@ -129,10 +129,10 @@ export function HeroSection() {
             {/* Secondary CTA — ghost */}
             <Link
               href="/visit"
-              className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded border-2 px-8 py-3.5 font-body text-sm font-semibold uppercase tracking-[0.06em] transition-all duration-200 ease-out hover:bg-[rgba(245,236,215,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5ECD7] focus-visible:ring-offset-2"
+              className="inline-flex min-h-[48px] cursor-pointer items-center justify-center rounded border-2 px-8 py-3.5 font-body text-sm font-semibold uppercase tracking-[0.06em] transition-all duration-200 ease-out hover:bg-[rgba(229,234,203,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5EACB] focus-visible:ring-offset-2"
               style={{
-                borderColor: "rgba(245, 236, 215, 0.6)",
-                color: "#F5ECD7",
+                borderColor: "rgba(229, 234, 203, 0.6)",
+                color: "#E5EACB",
               }}
             >
               Find Us
@@ -149,13 +149,13 @@ export function HeroSection() {
         <div className="flex flex-col items-center gap-1">
           <span
             className="font-body text-[0.7rem] uppercase tracking-widest"
-            style={{ color: "rgba(245, 236, 215, 0.5)" }}
+            style={{ color: "rgba(229, 234, 203, 0.5)" }}
           >
             scroll
           </span>
           <svg
             className="h-5 w-5 animate-bounce"
-            style={{ color: "rgba(245, 236, 215, 0.5)" }}
+            style={{ color: "rgba(229, 234, 203, 0.5)" }}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

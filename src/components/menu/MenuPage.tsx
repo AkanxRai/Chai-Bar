@@ -222,7 +222,7 @@ export function MenuPage() {
         </p>
         <Link
           href="/visit"
-          className="mt-8 inline-flex items-center gap-2 rounded bg-muted-gold px-8 py-3 font-body text-sm font-semibold uppercase tracking-wider text-charcoal transition-colors hover:bg-[#D4B85C]"
+          className="mt-8 inline-flex items-center gap-2 rounded bg-muted-gold px-8 py-3 font-body text-sm font-semibold uppercase tracking-wider text-charcoal transition-colors hover:bg-[#8FBF7A]"
         >
           Get Directions &rarr;
         </Link>

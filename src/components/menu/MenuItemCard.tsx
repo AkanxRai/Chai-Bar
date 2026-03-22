@@ -22,7 +22,7 @@ export function MenuItemCard({ item, compact }: MenuItemCardProps) {
   // Compact mobile card layout
   if (compact) {
     return (
-      <div className="flex items-center gap-3 rounded-xl bg-warm-white p-3 shadow-sm transition-all duration-250 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(92,51,23,0.12)]">
+      <div className="flex items-center gap-3 rounded-xl bg-warm-white p-3 shadow-sm transition-all duration-250 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,85,50,0.12)]">
         {/* Placeholder image */}
         <div
           className="h-20 w-20 flex-none rounded-lg bg-gradient-to-br from-cream to-muted-gold/20"
@@ -33,7 +33,7 @@ export function MenuItemCard({ item, compact }: MenuItemCardProps) {
             {item.name}
           </span>
           {item.description && (
-            <span className="mt-0.5 truncate text-[0.82rem] italic leading-snug text-[#8B6B52]">
+            <span className="mt-0.5 truncate text-[0.82rem] italic leading-snug text-[#4A7058]">
               {item.description}
             </span>
           )}
@@ -48,7 +48,7 @@ export function MenuItemCard({ item, compact }: MenuItemCardProps) {
               {item.diet === "veg" ? "Vegetarian" : "Non-Vegetarian"}
             </span>
             {isBestseller && (
-              <span className="rounded-full bg-[#C9A84C] px-2 py-0.5 text-[0.65rem] font-medium text-white">
+              <span className="rounded-full bg-[#7CAE68] px-2 py-0.5 text-[0.65rem] font-medium text-white">
                 Bestseller
               </span>
             )}
@@ -68,7 +68,7 @@ export function MenuItemCard({ item, compact }: MenuItemCardProps) {
 
   // Full desktop card layout
   return (
-    <div className="flex flex-col rounded-xl bg-warm-white shadow-sm transition-all duration-250 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(92,51,23,0.12)]">
+    <div className="flex flex-col rounded-xl bg-warm-white shadow-sm transition-all duration-250 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(27,85,50,0.12)]">
       {/* Image placeholder — 16:9 warm bg */}
       <div
         className="relative aspect-video w-full rounded-t-xl bg-gradient-to-br from-cream to-muted-gold/20"
@@ -86,7 +86,7 @@ export function MenuItemCard({ item, compact }: MenuItemCardProps) {
             {item.diet === "veg" ? "Vegetarian" : "Non-Vegetarian"}
           </span>
           {isBestseller && (
-            <span className="rounded-full bg-[#C9A84C] px-2.5 py-0.5 text-[0.65rem] font-semibold text-white">
+            <span className="rounded-full bg-[#7CAE68] px-2.5 py-0.5 text-[0.65rem] font-semibold text-white">
               Bestseller
             </span>
           )}
@@ -103,7 +103,7 @@ export function MenuItemCard({ item, compact }: MenuItemCardProps) {
           {item.name}
         </span>
         {item.description && (
-          <p className="mt-1 text-[0.82rem] italic leading-relaxed text-[#8B6B52]">
+          <p className="mt-1 text-[0.82rem] italic leading-relaxed text-[#4A7058]">
             {item.description}
           </p>
         )}

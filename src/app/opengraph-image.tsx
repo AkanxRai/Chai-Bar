@@ -9,7 +9,7 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: "#5C3317",
+          background: "#1B5532",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -23,7 +23,7 @@ export default function OGImage() {
           style={{
             fontSize: 88,
             fontWeight: 700,
-            color: "#F5ECD7",
+            color: "#E5EACB",
             letterSpacing: "-2px",
           }}
         >
@@ -32,7 +32,7 @@ export default function OGImage() {
         <div
           style={{
             fontSize: 26,
-            color: "#C9A84C",
+            color: "#7CAE68",
             letterSpacing: "5px",
             textTransform: "uppercase" as const,
           }}
@@ -42,7 +42,7 @@ export default function OGImage() {
         <div
           style={{
             fontSize: 20,
-            color: "rgba(245,236,215,0.55)",
+            color: "rgba(229,234,203,0.55)",
             marginTop: "4px",
           }}
         >
