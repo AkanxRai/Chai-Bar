@@ -17,11 +17,13 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # local env files
 .env*.local
@@ -36,3 +38,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# screenshots & dev assets
+/screenshots/
+/assets/
+*.png
+!public/**/*.png
+
+# playwright
+.playwright-mcp/
+
+# design system & plan docs (generated)
+/design-system/
+/docs/superpowers/
