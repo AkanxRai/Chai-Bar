@@ -31,7 +31,7 @@ const featuredItems = [
 
 export function MenuTeaser() {
   return (
-    <section className="bg-cream/30 px-4 py-20 sm:px-6">
+    <section id="menu-teaser" className="bg-cream/30 px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center font-brand text-3xl font-bold text-chai-brown sm:text-4xl">
           A Taste of Chai Bar

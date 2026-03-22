@@ -23,6 +23,16 @@ const config: Config = {
         script: ["var(--font-script)"],
         body: ["var(--font-body)"],
       },
+      keyframes: {
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "fade-up": "fadeUp 0.7s ease forwards",
+        "fade-up-slow": "fadeUp 0.9s ease forwards",
+      },
     },
   },
   plugins: [tailwindcssAnimate],

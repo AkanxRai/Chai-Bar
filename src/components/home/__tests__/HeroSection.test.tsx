@@ -3,22 +3,32 @@ import { describe, it, expect } from "vitest";
 import { HeroSection } from "../HeroSection";
 
 describe("HeroSection", () => {
-  it("renders the tagline", () => {
-    render(<HeroSection />);
-    expect(screen.getByText(/chai, chill & city stories/i)).toBeInTheDocument();
-  });
-
-  it("renders the subline", () => {
+  it("renders the headline", () => {
     render(<HeroSection />);
     expect(
-      screen.getByText(/your corner of indiranagar/i)
+      screen.getByText(/one cup away from happiness/i)
     ).toBeInTheDocument();
   });
 
-  it("renders the primary CTA linking to menu", () => {
+  it("renders the subheadline", () => {
     render(<HeroSection />);
-    const cta = screen.getByRole("link", { name: /see our menu/i });
-    expect(cta).toHaveAttribute("href", "/menu");
+    expect(
+      screen.getByText(/come find your corner/i)
+    ).toBeInTheDocument();
+  });
+
+  it("renders the eyebrow label", () => {
+    render(<HeroSection />);
+    expect(
+      screen.getByText(/favourite chai stop/i)
+    ).toBeInTheDocument();
+  });
+
+  it("renders the primary CTA", () => {
+    render(<HeroSection />);
+    expect(
+      screen.getByText(/see what.s brewing/i)
+    ).toBeInTheDocument();
   });
 
   it("renders the secondary CTA linking to visit", () => {
@@ -27,9 +37,16 @@ describe("HeroSection", () => {
     expect(cta).toHaveAttribute("href", "/visit");
   });
 
-  it("renders the hero background image", () => {
+  it("renders the hero background image with interior2", () => {
     render(<HeroSection />);
-    const img = screen.getByRole("img", { name: /chai bar entrance/i });
+    const img = screen.getByRole("img", {
+      name: /chai bar interior/i,
+    });
     expect(img).toBeInTheDocument();
+  });
+
+  it("renders the scroll indicator", () => {
+    render(<HeroSection />);
+    expect(screen.getByText(/scroll/i)).toBeInTheDocument();
   });
 });
