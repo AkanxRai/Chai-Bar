@@ -19,6 +19,12 @@ export function generateMetadata({ params }: Props): Metadata {
   return {
     title: post.title,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | Chai Bar`,
+      description: post.excerpt,
+      type: "article",
+      images: [{ url: post.coverImage, width: 1200, height: 630 }],
+    },
   };
 }
 
