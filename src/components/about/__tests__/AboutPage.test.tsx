@@ -72,7 +72,7 @@ describe("AboutPage", () => {
   it("renders the CTA location copy", () => {
     render(<AboutPage />);
     expect(
-      screen.getByText(/we're at indiranagar, bangalore\. the chai is always on\./i)
+      screen.getByText(/we.re at indiranagar, bangalore\. the chai is always on\./i)
     ).toBeInTheDocument();
   });
 
