@@ -3,9 +3,11 @@ import { describe, it, expect } from "vitest";
 import { Footer } from "../Footer";
 
 describe("Footer", () => {
-  it("renders the brand name", () => {
+  it("renders the logo image", () => {
     render(<Footer />);
-    expect(screen.getByText("Chai Bar")).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: /chai bar/i })
+    ).toBeInTheDocument();
   });
 
   it("renders the tagline", () => {

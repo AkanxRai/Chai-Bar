@@ -26,28 +26,26 @@ export const metadata: Metadata = {
     "best chai in bangalore",
     "CMH Road cafe",
   ],
+  icons: {
+    icon: "/images/logo-emblem.png",
+    apple: "/images/logo-emblem.png",
+    shortcut: "/images/logo-emblem.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Chai Bar",
-    title: "Chai Bar — Chai, Chill & City Stories",
+    title: "Chai Bar — The Only Bar That Brews Chai",
     description:
-      "Your corner of Indiranagar. Come for the chai. Stay for the stories. Crafted chai, warm vibes, and the soul of Bangalore.",
-    images: [
-      {
-        url: "/images/og-cover.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Chai Bar — Chai, Chill & City Stories",
-      },
-    ],
+      "Chai, Chill & City Stories. Indiranagar's favourite chai stop.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chai Bar — Chai, Chill & City Stories",
+    title: "Chai Bar — The Only Bar That Brews Chai",
     description:
-      "Your corner of Indiranagar. Come for the chai. Stay for the stories.",
-    images: ["/images/og-cover.jpg"],
+      "Chai, Chill & City Stories. Indiranagar's favourite chai stop.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,

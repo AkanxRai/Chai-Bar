@@ -3,9 +3,10 @@ import { describe, it, expect } from "vitest";
 import { Navbar } from "../Navbar";
 
 describe("Navbar", () => {
-  it("renders the brand name", () => {
+  it("renders logo images (desktop + mobile)", () => {
     render(<Navbar />);
-    expect(screen.getByText("Chai Bar")).toBeInTheDocument();
+    const logos = screen.getAllByRole("img", { name: /chai bar/i });
+    expect(logos.length).toBe(2);
   });
 
   it("renders navigation links", () => {

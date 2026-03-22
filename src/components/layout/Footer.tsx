@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = [
   { href: "/menu", label: "Menu" },
@@ -14,10 +15,18 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div>
-            <h2 className="font-brand text-2xl font-bold text-warm-white">
-              Chai Bar
-            </h2>
-            <p className="mt-2 font-script text-lg text-muted-gold">
+            <Image
+              src="/images/logo.jpg"
+              alt="Chai Bar"
+              height={48}
+              width={240}
+              className="object-contain"
+              style={{
+                filter: "brightness(0) invert(1)",
+                opacity: 0.9,
+              }}
+            />
+            <p className="mt-3 font-script text-lg text-muted-gold">
               Chai, Chill &amp; City Stories
             </p>
             <p className="mt-4 text-sm text-cream/70">
