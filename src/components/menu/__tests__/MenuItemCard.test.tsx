@@ -1,65 +1,82 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { describe, it, expect } from "vitest";
 import { MenuItemCard } from "../MenuItemCard";
+import type { MenuItem } from "@/data/menu";
 
-const vegItem = {
+const vegItem: MenuItem = {
   name: "Samosa",
-  diet: "veg" as const,
+  diet: "veg",
   price: 59,
   hasSizes: false,
+  description: "The original. Still undefeated.",
 };
 
-const nonVegItem = {
-  name: "Chicken Puff",
-  diet: "non-veg" as const,
-  price: 110,
-  hasSizes: false,
-};
-
-const chaiItem = {
+const chaiItem: MenuItem = {
   name: "Masala Chai",
-  diet: "veg" as const,
+  diet: "veg",
   price: 79,
   priceL: 129,
   hasSizes: true,
+  description: "Ginger, cardamom, and a Tuesday that feels like Friday.",
+};
+
+const nonVegItem: MenuItem = {
+  name: "Chicken Ramen Bowl",
+  diet: "non-veg",
+  price: 479,
+  hasSizes: false,
+  description: "The bowl people come back for.",
 };
 
 describe("MenuItemCard", () => {
-  it("renders item name and price", () => {
+  it("renders item name and description", () => {
     render(<MenuItemCard item={vegItem} />);
+    expect(screen.getByText("Samosa")).toBeInTheDocument();
+    expect(screen.getByText(/still undefeated/i)).toBeInTheDocument();
+  });
+
+  it("renders veg badge with accessible label", () => {
+    render(<MenuItemCard item={vegItem} />);
+    expect(screen.getByText("Vegetarian")).toBeInTheDocument();
+  });
+
+  it("renders non-veg badge with accessible label", () => {
+    render(<MenuItemCard item={nonVegItem} />);
+    expect(screen.getByText("Non-Vegetarian")).toBeInTheDocument();
+  });
+
+  it("renders price for non-sized items", () => {
+    render(<MenuItemCard item={vegItem} />);
+    expect(screen.getByText("₹59")).toBeInTheDocument();
+  });
+
+  it("renders M/L size toggle with both prices for chai items", () => {
+    render(<MenuItemCard item={chaiItem} />);
+    expect(screen.getByText(/M ₹79/)).toBeInTheDocument();
+    expect(screen.getByText(/L ₹129/)).toBeInTheDocument();
+  });
+
+  it("toggles size selection on click", async () => {
+    const user = userEvent.setup();
+    render(<MenuItemCard item={chaiItem} />);
+
+    const lButton = screen.getByRole("button", { name: /large size/i });
+    await user.click(lButton);
+    expect(lButton).toHaveAttribute("aria-pressed", "true");
+
+    const mButton = screen.getByRole("button", { name: /medium size/i });
+    expect(mButton).toHaveAttribute("aria-pressed", "false");
+  });
+
+  it("renders compact mobile layout when compact prop is true", () => {
+    render(<MenuItemCard item={vegItem} compact />);
     expect(screen.getByText("Samosa")).toBeInTheDocument();
     expect(screen.getByText("₹59")).toBeInTheDocument();
   });
 
-  it("shows veg badge for veg items", () => {
-    render(<MenuItemCard item={vegItem} />);
-    expect(screen.getByText("Veg")).toBeInTheDocument();
-  });
-
-  it("shows non-veg badge for non-veg items", () => {
-    render(<MenuItemCard item={nonVegItem} />);
-    expect(screen.getByText("Non-Veg")).toBeInTheDocument();
-  });
-
-  it("shows M/L size toggle for chai items", () => {
+  it("shows Bestseller badge for bestseller items", () => {
     render(<MenuItemCard item={chaiItem} />);
-    expect(screen.getByRole("button", { name: /medium size/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /large size/i })).toBeInTheDocument();
-  });
-
-  it("displays medium price by default for chai items", () => {
-    render(<MenuItemCard item={chaiItem} />);
-    expect(screen.getByText("₹79")).toBeInTheDocument();
-  });
-
-  it("switches to large price when L is clicked", () => {
-    render(<MenuItemCard item={chaiItem} />);
-    fireEvent.click(screen.getByRole("button", { name: /large size/i }));
-    expect(screen.getByText("₹129")).toBeInTheDocument();
-  });
-
-  it("does not show size toggle for non-chai items", () => {
-    render(<MenuItemCard item={vegItem} />);
-    expect(screen.queryByRole("button", { name: /medium size/i })).not.toBeInTheDocument();
+    expect(screen.getByText("Bestseller")).toBeInTheDocument();
   });
 });

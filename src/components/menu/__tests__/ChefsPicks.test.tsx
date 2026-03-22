@@ -3,12 +3,12 @@ import { describe, it, expect } from "vitest";
 import { ChefsPicks } from "../ChefsPicks";
 
 describe("ChefsPicks", () => {
-  it("renders the heading", () => {
+  it("renders the Chef's Picks heading", () => {
     render(<ChefsPicks />);
-    expect(screen.getByRole("heading", { name: /chef's picks/i })).toBeInTheDocument();
+    expect(screen.getByText(/chef.s picks/i)).toBeInTheDocument();
   });
 
-  it("renders all 4 chef's pick items", () => {
+  it("renders all 4 chef pick items", () => {
     render(<ChefsPicks />);
     expect(screen.getByText("Masala Chai")).toBeInTheDocument();
     expect(screen.getByText("Chicken Ramen Bowl")).toBeInTheDocument();
@@ -16,21 +16,26 @@ describe("ChefsPicks", () => {
     expect(screen.getByText("Brownie Sundae")).toBeInTheDocument();
   });
 
-  it("shows category for each pick", () => {
+  it("renders descriptions for chef picks", () => {
     render(<ChefsPicks />);
-    expect(screen.getByText("Chai Specials")).toBeInTheDocument();
-    expect(screen.getByText("Pasta & Ramen")).toBeInTheDocument();
+    expect(
+      screen.getByText(/ginger, cardamom/i)
+    ).toBeInTheDocument();
   });
 
-  it("shows price for each pick", () => {
+  it("shows From ₹ prefix for sized items", () => {
     render(<ChefsPicks />);
-    expect(screen.getByText("From ₹79")).toBeInTheDocument(); // Masala Chai — sized item
-    expect(screen.getByText("₹479")).toBeInTheDocument(); // Chicken Ramen Bowl
+    expect(screen.getByText(/from ₹79/i)).toBeInTheDocument();
   });
 
-  it("shows chef's pick badge", () => {
+  it("shows direct price for non-sized items", () => {
     render(<ChefsPicks />);
-    const badges = screen.getAllByText(/chef's pick/i);
-    expect(badges.length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText("₹479")).toBeInTheDocument();
+  });
+
+  it("renders Chef's Pick badge on each card", () => {
+    render(<ChefsPicks />);
+    const badges = screen.getAllByText(/chef.s pick/i);
+    expect(badges.length).toBe(4 + 1); // 4 badges + 1 heading
   });
 });

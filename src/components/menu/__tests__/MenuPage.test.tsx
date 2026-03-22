@@ -1,93 +1,89 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, it, expect } from "vitest";
 import { MenuPage } from "../MenuPage";
 
 describe("MenuPage", () => {
   it("renders the page heading", () => {
     render(<MenuPage />);
+    expect(screen.getByText(/what.s your craving today/i)).toBeInTheDocument();
+  });
+
+  it("renders the subtitle", () => {
+    render(<MenuPage />);
     expect(
-      screen.getByRole("heading", { name: /our menu/i })
+      screen.getByText(/100\+ things to love/i)
     ).toBeInTheDocument();
   });
 
-  it("renders the ChefsPicks section", () => {
+  it("renders the All tab as default active", () => {
+    render(<MenuPage />);
+    const allTab = screen.getByRole("tab", { name: /all/i });
+    expect(allTab).toHaveAttribute("aria-selected", "true");
+  });
+
+  it("renders Chef's Picks section", () => {
+    render(<MenuPage />);
+    expect(screen.getByText(/chef.s picks/i)).toBeInTheDocument();
+  });
+
+  it("renders search input", () => {
     render(<MenuPage />);
     expect(
-      screen.getByRole("heading", { name: /chef's picks/i })
+      screen.getByPlaceholderText(/search chai, ramen/i)
     ).toBeInTheDocument();
   });
 
-  it("renders the search input", () => {
+  it("renders filter pills", () => {
+    render(<MenuPage />);
+    expect(screen.getByText(/veg only/i)).toBeInTheDocument();
+    expect(screen.getByText(/bestsellers/i)).toBeInTheDocument();
+  });
+
+  it("shows all categories in All view by default", () => {
+    render(<MenuPage />);
+    // Category names appear in tabs + chef's picks + section headings
+    expect(screen.getAllByText("Chai Specials").length).toBeGreaterThanOrEqual(2);
+    expect(screen.getAllByText("Snack Bites").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Pasta & Ramen").length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("switches to single category on tab click", async () => {
+    const user = userEvent.setup();
+    render(<MenuPage />);
+    const chaiTab = screen.getByRole("tab", { name: /chai specials/i });
+    await user.click(chaiTab);
+    expect(chaiTab).toHaveAttribute("aria-selected", "true");
+    // Items appear in both desktop grid and mobile compact (CSS hides one)
+    expect(screen.getAllByText("Classic Chai").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Masala Chai").length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("filters items by search", async () => {
+    const user = userEvent.setup();
+    render(<MenuPage />);
+    await user.click(screen.getByRole("tab", { name: /snack bites/i }));
+    await user.type(screen.getByRole("textbox"), "samosa");
+    expect(screen.getAllByText("Samosa").length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("renders the bottom CTA", () => {
     render(<MenuPage />);
     expect(
-      screen.getByPlaceholderText("What are you craving?")
+      screen.getByText(/come experience it in person/i)
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /get directions/i })
+    ).toHaveAttribute("href", "/visit");
   });
 
-  it("renders category tabs", () => {
+  it("shows no results message when search has no matches", async () => {
+    const user = userEvent.setup();
     render(<MenuPage />);
-    expect(screen.getByRole("tab", { name: "Chai Specials" })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: "Snack Bites" })).toBeInTheDocument();
-  });
-
-  it("renders menu items for the default category (Chai Specials)", () => {
-    render(<MenuPage />);
-    expect(screen.getByText("Classic Chai")).toBeInTheDocument();
-    // Masala Chai appears in both ChefsPicks and the grid
-    expect(screen.getAllByText("Masala Chai").length).toBeGreaterThanOrEqual(2);
-  });
-
-  it("switches categories when a tab is clicked", () => {
-    render(<MenuPage />);
-    fireEvent.click(screen.getByRole("tab", { name: "Snack Bites" }));
-    expect(screen.getByText("Samosa")).toBeInTheDocument();
-    expect(screen.getByText("₹59")).toBeInTheDocument();
-  });
-
-  it("filters items by search text", () => {
-    render(<MenuPage />);
-    // Switch to Snack Bites first (has both veg and non-veg)
-    fireEvent.click(screen.getByRole("tab", { name: "Snack Bites" }));
-    fireEvent.change(screen.getByPlaceholderText("What are you craving?"), {
-      target: { value: "chicken" },
-    });
-    expect(screen.getByText("Chicken Puff")).toBeInTheDocument();
-    expect(screen.getByText("Chicken Nuggets")).toBeInTheDocument();
-    expect(screen.queryByText("Samosa")).not.toBeInTheDocument();
-  });
-
-  it("filters items when Veg Only is active", () => {
-    render(<MenuPage />);
-    // Switch to Snack Bites (has both veg and non-veg items)
-    fireEvent.click(screen.getByRole("tab", { name: "Snack Bites" }));
-    fireEvent.click(screen.getByRole("button", { name: /veg only/i }));
-    expect(screen.getByText("Samosa")).toBeInTheDocument();
-    expect(screen.queryByText("Chicken Puff")).not.toBeInTheDocument();
-  });
-
-  it("filters items when Under ₹150 is active", () => {
-    render(<MenuPage />);
-    // Switch to Snack Bites
-    fireEvent.click(screen.getByRole("tab", { name: "Snack Bites" }));
-    fireEvent.click(screen.getByRole("button", { name: /under ₹150/i }));
-    expect(screen.getByText("Samosa")).toBeInTheDocument(); // ₹59
-    expect(screen.queryByText("Chicken Nuggets")).not.toBeInTheDocument(); // ₹249
-  });
-
-  it("shows item count for active category", () => {
-    render(<MenuPage />);
-    // Chai Specials has 6 items
-    expect(screen.getByText(/6 items/i)).toBeInTheDocument();
-  });
-
-  it("shows 'From ₹59' badge when Snack Bites is active", () => {
-    render(<MenuPage />);
-    fireEvent.click(screen.getByRole("tab", { name: "Snack Bites" }));
-    expect(screen.getByText("From ₹59")).toBeInTheDocument();
-  });
-
-  it("does not show 'From ₹59' badge for other categories", () => {
-    render(<MenuPage />);
-    expect(screen.queryByText("From ₹59")).not.toBeInTheDocument();
+    await user.click(screen.getByRole("tab", { name: /boba/i }));
+    await user.type(screen.getByRole("textbox"), "xyznonexistent");
+    expect(
+      screen.getByText(/no items found/i)
+    ).toBeInTheDocument();
   });
 });

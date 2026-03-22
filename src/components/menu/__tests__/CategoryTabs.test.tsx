@@ -1,37 +1,62 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi } from "vitest";
 import { CategoryTabs } from "../CategoryTabs";
 
 const categories = [
-  { id: "chai-specials", name: "Chai Specials" },
-  { id: "coffee-cold-coffee", name: "Coffee & Cold Coffee" },
-  { id: "snack-bites", name: "Snack Bites" },
+  { id: "all", name: "All", count: 122 },
+  { id: "chai-specials", name: "Chai Specials", count: 6 },
+  { id: "coffee-cold-coffee", name: "Coffee & Cold Coffee", count: 11 },
 ];
 
 describe("CategoryTabs", () => {
-  it("renders all category names", () => {
-    render(<CategoryTabs categories={categories} activeId="chai-specials" onSelect={() => {}} />);
-    expect(screen.getByText("Chai Specials")).toBeInTheDocument();
-    expect(screen.getByText("Coffee & Cold Coffee")).toBeInTheDocument();
-    expect(screen.getByText("Snack Bites")).toBeInTheDocument();
+  it("renders all tab buttons with counts", () => {
+    render(
+      <CategoryTabs categories={categories} activeId="all" onSelect={() => {}} />
+    );
+    expect(screen.getByRole("tab", { name: /all/i })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /chai specials/i })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: /coffee/i })).toBeInTheDocument();
   });
 
-  it("highlights the active category", () => {
-    render(<CategoryTabs categories={categories} activeId="chai-specials" onSelect={() => {}} />);
-    const activeButton = screen.getByRole("tab", { name: "Chai Specials" });
-    expect(activeButton.className).toMatch(/bg-terracotta/);
+  it("marks the active tab as selected", () => {
+    render(
+      <CategoryTabs categories={categories} activeId="chai-specials" onSelect={() => {}} />
+    );
+    const tab = screen.getByRole("tab", { name: /chai specials/i });
+    expect(tab).toHaveAttribute("aria-selected", "true");
   });
 
-  it("calls onSelect when a tab is clicked", () => {
+  it("calls onSelect with category id on click", async () => {
     const onSelect = vi.fn();
-    render(<CategoryTabs categories={categories} activeId="chai-specials" onSelect={onSelect} />);
-    fireEvent.click(screen.getByRole("tab", { name: "Snack Bites" }));
-    expect(onSelect).toHaveBeenCalledWith("snack-bites");
+    const user = userEvent.setup();
+    render(
+      <CategoryTabs categories={categories} activeId="all" onSelect={onSelect} />
+    );
+    await user.click(screen.getByRole("tab", { name: /coffee/i }));
+    expect(onSelect).toHaveBeenCalledWith("coffee-cold-coffee");
   });
 
-  it("inactive tabs do not have active styling", () => {
-    render(<CategoryTabs categories={categories} activeId="chai-specials" onSelect={() => {}} />);
-    const inactiveButton = screen.getByRole("tab", { name: "Snack Bites" });
-    expect(inactiveButton.className).not.toMatch(/bg-terracotta/);
+  it("dims tabs with 0 filtered items", () => {
+    render(
+      <CategoryTabs
+        categories={categories}
+        activeId="all"
+        onSelect={() => {}}
+        filteredCounts={{ "chai-specials": 6, "coffee-cold-coffee": 0 }}
+      />
+    );
+    const coffeeTab = screen.getByRole("tab", { name: /coffee/i });
+    expect(coffeeTab.className).toContain("text-chai-brown/30");
+  });
+
+  it("has tablist role and aria-label", () => {
+    render(
+      <CategoryTabs categories={categories} activeId="all" onSelect={() => {}} />
+    );
+    expect(screen.getByRole("tablist")).toHaveAttribute(
+      "aria-label",
+      "Menu categories"
+    );
   });
 });
