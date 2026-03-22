@@ -16,10 +16,10 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/images/logo.jpg"
+              src="/images/logo.png"
               alt="Chai Bar"
               height={48}
-              width={240}
+              width={160}
               className="object-contain"
               style={{
                 filter: "brightness(0) invert(1)",

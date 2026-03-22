@@ -30,13 +30,12 @@ export function Navbar() {
         <Link href="/" aria-label="Chai Bar — Home">
           {/* Desktop: full logo */}
           <Image
-            src="/images/logo.jpg"
-            alt="Chai Bar — The Only Bar That Brews Chai"
+            src="/images/logo.png"
+            alt="Chai Bar"
             height={40}
-            width={200}
+            width={140}
             priority
             className="hidden cursor-pointer object-contain transition-all duration-300 md:block"
-            style={{ mixBlendMode: "multiply" }}
           />
           {/* Mobile: circle emblem */}
           <Image
