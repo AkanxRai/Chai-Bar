@@ -100,6 +100,18 @@
 - Code review passed — a11y improvements applied (aria-labels, semantic nav, focus states)
 - Ready for Phase 1 (Homepage)
 
+### 2026-03-22 — Phase 4 Complete
+
+- 3 components built in parallel using dispatching-parallel-agents
+- ReviewsSection: 6 curated real Google reviews (from 15+ user provided), star ratings, horizontal-scroll cards, Google Maps CTA
+- InstagramSection: 6-tile responsive grid mimicking Instagram feed, hover overlay with Instagram icon, links to @chaibarindiranagar
+- ContactSection: name/email/message form with accessible labels, submit state feedback, placeholder action (no backend)
+- Reviews data in src/data/reviews.ts — static for now, user wants dynamic Google fetching later
+- All 3 sections added to homepage after GalleryStrip (order: Reviews → Instagram → Contact)
+- 105 tests passing (17 test files)
+- Instagram handle confirmed: @chaibarindiranagar
+- Visit page updated with real Google Maps embed and accurate address (CMH Road, Indiranagar, near metro station)
+
 ### 2026-03-22 — Phase 3 Complete
 
 - 3 content pages built in parallel using dispatching-parallel-agents
@@ -141,7 +153,7 @@
 - [x] ~~What is DBC?~~ → "DBC Pastry" and "DBC Sundae" are the correct item names. Display as-is.
 - [ ] Are there any seasonal/rotating specials not on the current menu?
 - [ ] Does the café host events (open mic, etc.)? Affects Phase 2 scope.
-- [ ] What is the Instagram handle?
+- [x] ~~What is the Instagram handle?~~ → @chaibarindiranagar
 - [ ] What are the exact hours of operation?
 - [ ] Does the founder want to be featured on the About page?
 - [ ] Any press/media mentions to feature?
